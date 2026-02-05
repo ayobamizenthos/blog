@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article - Zenthos Insights</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Zenthos<span>Insights</span></a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#articles" class="nav-link">Articles</a>
+        <a href="create.html" class="nav-link">Write</a>
+      </nav>
+      <div class="header-actions">
+        <a href="create.html" class="write-btn">Write Post</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <article class="article-container">
+      <a href="index.html" class="back-link">Back to all articles</a>
+
+      <header class="article-header">
+        <span class="article-category" id="postCategory"></span>
+        <h1 class="article-title" id="postTitle">Loading...</h1>
+        <div class="article-meta">
+          <span class="article-author">By <strong id="postAuthor"></strong></span>
+          <span class="article-divider">|</span>
+          <span class="article-date" id="postDate"></span>
+          <span class="article-divider">|</span>
+          <span class="article-reading" id="postReadTime"></span>
+        </div>
+      </header>
+
+      <figure class="article-hero">
+        <img src="" alt="" id="postImage" style="display: none;">
+      </figure>
+
+      <div class="article-content" id="postContent"></div>
+
+      <footer class="article-footer">
+        <div class="article-tags">
+          <span class="tag" id="postTag"></span>
+        </div>
+        <div class="article-share">
+          <span>Share this article</span>
+        </div>
+      </footer>
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="author-card">
+        <h3>About the Author</h3>
+        <p class="author-name" id="sidebarAuthor"></p>
+        <p class="author-bio">Developer documenting the journey of learning to code. Sharing tutorials, insights, and
+          experiences to help others on their path.</p>
+      </div>
+      <div class="more-articles">
+        <h3>More Articles</h3>
+        <div id="relatedPosts"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-about">
+          <span class="footer-logo">Zenthos<span>Insights</span></span>
+          <p>A personal blog sharing insights on web development, programming tutorials, and the journey of becoming a
+            better developer.</p>
+          <div class="footer-author">
+            <strong>Ayobami Zenthos</strong>
+            <span>Developer and Writer</span>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="index.html">Home</a>
+            <a href="index.html#articles">All Articles</a>
+            <a href="create.html">Write a Post</a>
+          </div>
+          <div class="footer-col">
+            <h4>Categories</h4>
+            <a href="#">JavaScript</a>
+            <a href="#">Projects</a>
+            <a href="#">Technology</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="#">Getting Started</a>
+            <a href="#">Coding Tips</a>
+            <a href="#">Developer Tools</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Zenthos Insights. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { posts } from "./data.js";
+
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get("id");
+    var post = null;
+    var postIndex = -1;
+
+    for (var i = 0; i < posts.length; i++) {
+      if (posts[i].id == id) {
+        post = posts[i];
+        postIndex = i;
+        break;
+      }
+    }
+
+    if (post) {
+      document.title = post.title + " - Zenthos Insights";
+      document.getElementById("postCategory").textContent = post.category || 'General';
+      document.getElementById("postTitle").textContent = post.title;
+      document.getElementById("postAuthor").textContent = post.author;
+      document.getElementById("postDate").textContent = post.date || 'Recently';
+      document.getElementById("postTag").textContent = post.category || 'General';
+      document.getElementById("sidebarAuthor").textContent = post.author;
+
+      // Calculate reading time
+      var wordCount = post.content.split(' ').length;
+      var readTime = Math.max(1, Math.ceil(wordCount / 200));
+      document.getElementById("postReadTime").textContent = readTime + " min read";
+
+      if (post.image) {
+        var img = document.getElementById("postImage");
+        img.src = post.image;
+        img.alt = post.title;
+        img.style.display = "block";
+      }
+
+      // Format content with proper paragraphs
+      var paragraphs = post.content.split('\n\n');
+      var html = '';
+      for (var j = 0; j < paragraphs.length; j++) {
+        if (paragraphs[j].trim()) {
+          html += '<p>' + paragraphs[j] + '</p>';
+        }
+      }
+      document.getElementById("postContent").innerHTML = html;
+
+      // Show related posts
+      var relatedHtml = '';
+      var count = 0;
+      for (var k = 0; k < posts.length && count < 3; k++) {
+        if (k !== postIndex) {
+          relatedHtml += '<a href="post.html?id=' + posts[k].id + '" class="related-post">';
+          relatedHtml += '<span class="related-category">' + posts[k].category + '</span>';
+          relatedHtml += '<span class="related-title">' + posts[k].title + '</span>';
+          relatedHtml += '</a>';
+          count++;
+        }
+      }
+      document.getElementById("relatedPosts").innerHTML = relatedHtml;
+
+    } else {
+      document.getElementById("postTitle").textContent = "Article Not Found";
+      document.getElementById("postContent").innerHTML = '<p>Sorry, this article does not exist or has been removed. <a href="index.html">Return to homepage</a></p>';
+    }
+  </script>
+</body>
+
+</html>

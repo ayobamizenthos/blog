@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write a Post - Zenthos Insights</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Zenthos<span>Insights</span></a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#articles" class="nav-link">Articles</a>
+        <a href="create.html" class="nav-link">Write</a>
+      </nav>
+      <div class="header-actions">
+        <a href="create.html" class="write-btn">Write Post</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Write a Post</h1>
+      <p>Share your knowledge and experiences with readers</p>
+    </div>
+  </div>
+
+  <main class="form-section">
+    <div class="container">
+      <form class="post-form" id="createForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="Enter your post title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="author">Author Name</label>
+          <input type="text" id="author" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="Developer Journey">Developer Journey</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Coding Tips">Coding Tips</option>
+            <option value="Projects">Projects</option>
+            <option value="Technology">Technology</option>
+            <option value="Career">Career</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Cover Image URL (optional)</label>
+          <input type="url" id="image" placeholder="https://example.com/image.jpg">
+          <p class="form-hint">Paste a direct link to an image for your post cover</p>
+        </div>
+
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea id="content"
+            placeholder="Write your article here. Share your experiences, insights, and knowledge with readers..."
+            required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Publish Post</button>
+          <a href="index.html" class="btn btn-outline">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-about">
+          <span class="footer-logo">Zenthos<span>Insights</span></span>
+          <p>A personal blog sharing insights on web development, programming tutorials, and the journey of becoming a
+            better developer.</p>
+          <div class="footer-author">
+            <strong>Ayobami Zenthos</strong>
+            <span>Developer and Writer</span>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="index.html">Home</a>
+            <a href="index.html#articles">All Articles</a>
+            <a href="create.html">Write a Post</a>
+          </div>
+          <div class="footer-col">
+            <h4>Categories</h4>
+            <a href="#">JavaScript</a>
+            <a href="#">Projects</a>
+            <a href="#">Technology</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="#">Getting Started</a>
+            <a href="#">Coding Tips</a>
+            <a href="#">Developer Tools</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Zenthos Insights. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { posts, savePosts } from "./data.js";
+
+    var form = document.getElementById("createForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var title = document.getElementById("title").value.trim();
+      var author = document.getElementById("author").value.trim();
+      var category = document.getElementById("category").value;
+      var image = document.getElementById("image").value.trim();
+      var content = document.getElementById("content").value.trim();
+
+      if (!title || !author || !content) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      var today = new Date();
+      var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      var dateStr = months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+
+      var newPost = {
+        id: Date.now(),
+        title: title,
+        content: content,
+        author: author,
+        category: category,
+        image: image || null,
+        date: dateStr
+      };
+
+      posts.unshift(newPost);
+      savePosts();
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+
+</html>

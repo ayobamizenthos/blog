@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenthos Insights</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Zenthos<span>Insights</span></a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#articles" class="nav-link">JavaScript</a>
+        <a href="#articles" class="nav-link">Projects</a>
+        <a href="#articles" class="nav-link">Technology</a>
+        <a href="#articles" class="nav-link">Career</a>
+      </nav>
+      <div class="header-actions">
+        <a href="create.html" class="write-btn">Write Post</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="#articles">JavaScript</a>
+    <a href="#articles">Projects</a>
+    <a href="#articles">Technology</a>
+    <a href="create.html">Write Post</a>
+  </nav>
+
+  <section class="featured-section" id="featured"></section>
+
+  <main class="main-content" id="articles">
+    <div class="container">
+      <div class="content-layout">
+        <div class="posts-main">
+          <div class="section-header">
+            <h2>Latest Articles</h2>
+            <a href="#articles" class="view-all">View All</a>
+          </div>
+          <div class="posts-grid" id="post-list"></div>
+        </div>
+        <aside class="sidebar">
+          <div class="sidebar-section">
+            <h3>About This Blog</h3>
+            <p>Welcome to Zenthos Insights. This blog documents my journey as a developer, sharing coding tutorials,
+              project experiences, and thoughts on technology. Whether you are just starting out or looking to expand
+              your skills, I hope you find something valuable here.</p>
+          </div>
+          <div class="sidebar-section">
+            <h3>Topics</h3>
+            <div class="category-list">
+              <a href="#" class="category-tag">Developer Journey</a>
+              <a href="#" class="category-tag">JavaScript</a>
+              <a href="#" class="category-tag">Coding Tips</a>
+              <a href="#" class="category-tag">Projects</a>
+              <a href="#" class="category-tag">Technology</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-about">
+          <span class="footer-logo">Zenthos<span>Insights</span></span>
+          <p>A personal blog sharing insights on web development, programming tutorials, and the journey of becoming a
+            better developer. Based in Nigeria, writing for developers worldwide.</p>
+          <div class="footer-author">
+            <strong>Ayobami Zenthos</strong>
+            <span>Developer and Writer</span>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="index.html">Home</a>
+            <a href="#articles">All Articles</a>
+            <a href="create.html">Write a Post</a>
+          </div>
+          <div class="footer-col">
+            <h4>Categories</h4>
+            <a href="#">JavaScript</a>
+            <a href="#">Projects</a>
+            <a href="#">Technology</a>
+            <a href="#">Career</a>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="#">Getting Started</a>
+            <a href="#">Coding Tips</a>
+            <a href="#">Developer Tools</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Zenthos Insights. All rights reserved. Built with passion for the developer community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>
