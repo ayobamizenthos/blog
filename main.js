@@ -73,7 +73,10 @@ function render() {
       '<h3 class="post-title"><a href="post.html?id=' + post.id + '">' + post.title + '</a></h3>' +
       '<p class="post-excerpt">' + excerpt + '</p>' +
       '<div class="post-meta">' +
+      '<div class="post-author-wrap">' +
+      '<img src="Zenthos.png" alt="' + post.author + '" class="post-author-avatar">' +
       '<span class="post-author">' + post.author + '</span>' +
+      '</div>' +
       '<span class="post-date">' + (post.date || 'Recently') + '</span>' +
       '</div>' +
       '</div>' +

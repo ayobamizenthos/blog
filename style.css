@@ -390,6 +390,19 @@ a {
   color: #999;
 }
 
+.post-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-author-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .post-author {
   font-weight: 600;
   color: #333;
@@ -814,6 +827,15 @@ a {
   border-radius: 10px;
   padding: 28px;
   margin-bottom: 28px;
+  text-align: center;
+}
+
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
 }
 
 .author-card h3 {
@@ -823,6 +845,7 @@ a {
   margin-bottom: 16px;
   padding-bottom: 12px;
   border-bottom: 3px solid #B4B4B8;
+  text-align: left;
 }
 
 .author-card .author-name {
@@ -836,6 +859,33 @@ a {
   font-size: 14px;
   color: #666;
   line-height: 1.7;
+  text-align: left;
+}
+
+.author-social {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.author-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #0d0d0d;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.author-social a:hover {
+  background: #B4B4B8;
+  transform: translateY(-2px);
 }
 
 .more-articles {
@@ -1155,224 +1205,116 @@ a {
   gap: 20px;
 }
 
-/* ============ ABOUT PAGE ============ */
-.about-hero {
-  background: #0d0d0d;
-  padding: 100px 0;
-  text-align: center;
+/* ============ ABOUT PAGE - Editorial Style ============ */
+.about-page {
+  padding: 80px 0 100px;
+  background: #fff;
 }
 
-.about-hero h1 {
-  font-size: 52px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-}
-
-.about-tagline {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
+.about-article {
+  max-width: 720px;
   margin: 0 auto;
 }
 
-.about-content {
-  padding: 80px 0;
-  background: #fafafa;
-}
-
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 60px;
-}
-
-.about-section {
+.about-header {
   margin-bottom: 50px;
 }
 
-.about-section h2 {
+.about-header h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0d0d0d;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.about-intro {
+  font-size: 22px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.about-image-wrap {
+  margin: 50px 0;
+}
+
+.about-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.about-body {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+.about-body p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 28px;
+}
+
+.about-body h2 {
+  font-family: 'Inter', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #0d0d0d;
-  margin-bottom: 24px;
+  margin: 50px 0 24px;
   letter-spacing: -0.5px;
 }
 
-.about-section p {
-  font-size: 17px;
-  line-height: 1.8;
-  color: #444;
-  margin-bottom: 20px;
-}
-
-.about-features {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 30px;
-}
-
-.about-feature {
-  background: #fff;
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-}
-
-.about-feature h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0d0d0d;
-  margin-bottom: 12px;
-}
-
-.about-feature p {
-  font-size: 15px;
-  color: #666;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.about-sidebar {
-  position: sticky;
-  top: 100px;
-}
-
-.author-profile {
-  background: #fff;
-  padding: 32px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  margin-bottom: 24px;
-}
-
-.author-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
-
-.author-profile h3 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #0d0d0d;
-  margin-bottom: 6px;
-}
-
-.author-title {
-  font-size: 14px;
+.about-body a {
   color: #B4B4B8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.about-body a:hover {
+  color: #0d0d0d;
+}
+
+.about-signature {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.author-bio {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.7;
-}
-
-.about-stats {
-  background: #fff;
-  padding: 28px;
-  border-radius: 16px;
-  display: flex;
-  justify-content: space-around;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  margin-bottom: 24px;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-number {
-  display: block;
-  font-size: 28px;
-  font-weight: 800;
+  font-style: italic;
   color: #0d0d0d;
+  margin-top: 50px;
 }
 
-.stat-label {
-  font-size: 12px;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+/* About Page Mobile */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 50px 0 70px;
+  }
 
-.about-connect {
-  background: #fff;
-  padding: 28px;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-}
+  .about-header h1 {
+    font-size: 32px;
+  }
 
-.about-connect h4 {
-  font-size: 14px;
-  font-weight: 700;
-  color: #0d0d0d;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+  .about-intro {
+    font-size: 18px;
+  }
 
-.connect-link {
-  display: block;
-  padding: 12px 0;
-  font-size: 15px;
-  color: #555;
-  border-bottom: 1px solid #eee;
-  transition: color 0.2s;
-}
+  .about-body p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
 
-.connect-link:last-child {
-  border-bottom: none;
-}
+  .about-body h2 {
+    font-size: 22px;
+    margin: 40px 0 20px;
+  }
 
-.connect-link:hover {
-  color: #B4B4B8;
-}
+  .about-image-wrap {
+    margin: 30px -20px;
+  }
 
-.about-cta {
-  background: #0d0d0d;
-  padding: 80px 0;
-  text-align: center;
-}
-
-.about-cta h2 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 16px;
-}
-
-.about-cta p {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 32px;
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-}
-
-.btn-outline-light {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.btn-outline-light:hover {
-  background: #fff;
-  color: #0d0d0d;
-  border-color: #fff;
+  .about-photo {
+    border-radius: 0;
+  }
 }
 
 /* ============ MOBILE RESPONSIVE ============ */
