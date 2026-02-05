@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zenthos Insights</title>
+  <title>Zenthos Insights - Developer Journey & Tech Blog</title>
+  <meta name="description"
+    content="A personal blog documenting the journey of learning to code. Tutorials, project experiences, and thoughts on technology.">
+  <link rel="icon" type="image/png" href="zenthos_logo_new.png">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,16 +16,18 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">Zenthos<span>Insights</span></a>
+      <a href="index.html" class="logo">
+        <img src="zenthos_logo_new.png" alt="Zenthos Insights" class="logo-img">
+        <span class="logo-text">Zenthos<span>Insights</span></span>
+      </a>
       <nav class="main-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="#articles" class="nav-link">JavaScript</a>
-        <a href="#articles" class="nav-link">Projects</a>
-        <a href="#articles" class="nav-link">Technology</a>
-        <a href="#articles" class="nav-link">Career</a>
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="#articles" class="nav-link">Articles</a>
+        <a href="create.html" class="nav-link">Write</a>
+        <a href="#about" class="nav-link">About</a>
       </nav>
       <div class="header-actions">
-        <a href="create.html" class="write-btn">Write Post</a>
+        <a href="create.html" class="write-btn">New Post</a>
       </div>
       <button class="menu-toggle" id="menuToggle">
         <span></span>
@@ -34,10 +39,9 @@
 
   <nav class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="#articles">JavaScript</a>
-    <a href="#articles">Projects</a>
-    <a href="#articles">Technology</a>
-    <a href="create.html">Write Post</a>
+    <a href="#articles">Articles</a>
+    <a href="create.html">Write</a>
+    <a href="#about">About</a>
   </nav>
 
   <section class="featured-section" id="featured"></section>
@@ -48,26 +52,31 @@
         <div class="posts-main">
           <div class="section-header">
             <h2>Latest Articles</h2>
-            <a href="#articles" class="view-all">View All</a>
+            <p class="section-subtitle">Fresh insights from my developer journey</p>
           </div>
           <div class="posts-grid" id="post-list"></div>
         </div>
         <aside class="sidebar">
-          <div class="sidebar-section">
+          <div class="sidebar-section about-widget" id="about">
             <h3>About This Blog</h3>
-            <p>Welcome to Zenthos Insights. This blog documents my journey as a developer, sharing coding tutorials,
-              project experiences, and thoughts on technology. Whether you are just starting out or looking to expand
-              your skills, I hope you find something valuable here.</p>
+            <p>Welcome to Zenthos Insights. I document my journey as a developer, sharing tutorials, project
+              experiences, and thoughts on technology. Whether you are just starting or looking to grow, I hope you find
+              value here.</p>
+            <a href="create.html" class="sidebar-cta">Share Your Story</a>
           </div>
           <div class="sidebar-section">
-            <h3>Topics</h3>
+            <h3>Categories</h3>
             <div class="category-list">
-              <a href="#" class="category-tag">Developer Journey</a>
-              <a href="#" class="category-tag">JavaScript</a>
-              <a href="#" class="category-tag">Coding Tips</a>
-              <a href="#" class="category-tag">Projects</a>
-              <a href="#" class="category-tag">Technology</a>
+              <a href="#articles" class="category-tag">Developer Journey</a>
+              <a href="#articles" class="category-tag">JavaScript</a>
+              <a href="#articles" class="category-tag">Coding Tips</a>
+              <a href="#articles" class="category-tag">Projects</a>
+              <a href="#articles" class="category-tag">Technology</a>
             </div>
+          </div>
+          <div class="sidebar-section">
+            <h3>Stay Updated</h3>
+            <p class="small-text">New articles every week on web development, coding insights, and tech trends.</p>
           </div>
         </aside>
       </div>
@@ -78,38 +87,39 @@
     <div class="container">
       <div class="footer-main">
         <div class="footer-about">
-          <span class="footer-logo">Zenthos<span>Insights</span></span>
+          <a href="index.html" class="footer-logo-link">
+            <img src="zenthos_logo_new.png" alt="Zenthos" class="footer-logo-img">
+            <span class="footer-logo">Zenthos<span>Insights</span></span>
+          </a>
           <p>A personal blog sharing insights on web development, programming tutorials, and the journey of becoming a
-            better developer. Based in Nigeria, writing for developers worldwide.</p>
+            better developer.</p>
           <div class="footer-author">
             <strong>Ayobami Zenthos</strong>
-            <span>Developer and Writer</span>
+            <span>Developer & Writer</span>
           </div>
         </div>
         <div class="footer-nav">
           <div class="footer-col">
             <h4>Navigation</h4>
             <a href="index.html">Home</a>
-            <a href="#articles">All Articles</a>
+            <a href="#articles">Articles</a>
             <a href="create.html">Write a Post</a>
+            <a href="#about">About</a>
           </div>
           <div class="footer-col">
             <h4>Categories</h4>
-            <a href="#">JavaScript</a>
-            <a href="#">Projects</a>
-            <a href="#">Technology</a>
-            <a href="#">Career</a>
+            <a href="#articles">JavaScript</a>
+            <a href="#articles">Projects</a>
+            <a href="#articles">Technology</a>
+            <a href="#articles">Coding Tips</a>
           </div>
           <div class="footer-col">
-            <h4>Resources</h4>
-            <a href="#">Getting Started</a>
-            <a href="#">Coding Tips</a>
-            <a href="#">Developer Tools</a>
+            <h4>Connect</h4>
+            <a href="#">Twitter</a>
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
           </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Zenthos Insights. All rights reserved. Built with passion for the developer community.</p>
       </div>
     </div>
   </footer>

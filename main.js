@@ -19,8 +19,8 @@ function renderFeatured() {
 
   var post = posts[0];
   var excerpt = post.content.replace(/\n/g, ' ');
-  if (excerpt.length > 200) {
-    excerpt = excerpt.substring(0, 200) + '...';
+  if (excerpt.length > 180) {
+    excerpt = excerpt.substring(0, 180) + '...';
   }
 
   var imageUrl = post.image || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80';
@@ -29,13 +29,15 @@ function renderFeatured() {
     '<a href="post.html?id=' + post.id + '" class="featured-article">' +
     '<div class="featured-image" style="background-image: url(' + imageUrl + ')"></div>' +
     '<div class="featured-content">' +
+    '<span class="featured-label">Featured Article</span>' +
     '<span class="featured-category">' + (post.category || 'Featured') + '</span>' +
     '<h2 class="featured-title">' + post.title + '</h2>' +
     '<p class="featured-excerpt">' + excerpt + '</p>' +
     '<div class="featured-meta">' +
-    '<span class="featured-author">' + post.author + '</span>' +
+    '<span class="featured-author">By ' + post.author + '</span>' +
     '<span class="featured-date">' + (post.date || 'Recently') + '</span>' +
     '</div>' +
+    '<span class="featured-btn">Read Article →</span>' +
     '</div>' +
     '</a>' +
     '</div>';

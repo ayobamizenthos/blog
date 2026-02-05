@@ -1,6 +1,40 @@
 // Blog posts with long-form professional content
 const defaultPosts = [
   {
+    id: 4,
+    title: "Building My First Project",
+    content: `There comes a point in every developer journey when tutorials are no longer enough. You can only learn so much by following along with instructors. The real learning happens when you build something from scratch, facing all the challenges and decisions that come with creating your own project. Last month, I completed my first substantial project, and I want to share what that experience taught me.
+
+The project was a task management application. I chose this because it involves fundamental concepts that every developer should understand. User input handling, data storage, updating the interface, and managing application state are all essential skills. Plus, it was something I would actually use, which kept me motivated throughout the development process.
+
+Planning was more important than I initially realized. Before writing any code, I sketched out the features I wanted to include. I designed the user interface on paper. I thought about how data would flow through the application. This upfront planning saved me countless hours of refactoring later. When I knew what I was building, the implementation became much smoother.
+
+I learned the value of writing things down. Not just code, but decisions, ideas, and problems. When I hit a roadblock, I would write out the problem in plain language. Often, the act of articulating the issue helped me see potential solutions. These notes also proved valuable when I returned to sections of code after a few days away.
+
+Starting small proved to be essential. My initial feature list was ambitious. I wanted user accounts, categories, due dates, notifications, and collaborative features. Trying to build all of this at once would have been overwhelming. Instead, I focused on the core functionality first. Add a task, mark it complete, delete it. Once that foundation was solid, I added features one at a time.
+
+This incremental approach taught me about minimum viable products. The first working version of my app was basic, but it functioned. From there, I could improve and expand. Each addition felt like a meaningful improvement rather than a drop in an enormous bucket.
+
+I made mistakes along the way, and that was valuable. There were moments when I realized my approach was wrong and had to rewrite significant portions of code. Rather than seeing this as wasted time, I understood it as part of the learning process. Each mistake taught me something about code organization, data structures, or user experience that I would not have learned otherwise.
+
+One major rewrite happened when I realized my state management was too tangled. Different parts of the application were modifying data in ways that conflicted with each other. I had to step back, think about data flow more carefully, and implement a cleaner architecture. That experience shaped how I think about application structure now.
+
+Testing became a priority earlier than I expected. Initially, I tested manually by clicking through the application. This worked for a small feature set but became tedious as the application grew. I learned to write simple automated tests that verified critical functionality. These tests caught bugs early and gave me confidence when making changes.
+
+Documentation became a priority too. I commented my code generously and wrote notes about design decisions. When I returned to sections of code after a few days, those notes were incredibly helpful. Future me thanked past me for taking the time to explain why certain choices were made.
+
+The satisfaction of completing this project was immense. Seeing something I built from nothing functioning exactly as intended gave me confidence that I could tackle larger challenges. There is a difference between knowing concepts theoretically and having applied them to solve real problems.
+
+I also learned about the importance of shipping imperfect work. Perfectionism can be paralyzing. At some point, you have to call a project done enough and move on. There will always be improvements you could make, features you could add, code you could refactor. Learning when to stop is itself a skill.
+
+If you are still in tutorial mode, I encourage you to take the leap. Pick a project that interests you and start building. The lessons you learn will accelerate your growth as a developer. You will encounter problems that no tutorial prepared you for, and solving those problems is where real learning happens.`,
+    author: "Ayobami Zenthos",
+    category: "Projects",
+    image: "dev-journey.webp",
+    date: "Feb 5, 2026",
+    featured: true
+  },
+  {
     id: 1,
     title: "My Journey into Web Development",
     content: `Six months ago, I made a decision that would completely change my career path. I decided to learn web development. At that point, I had no programming background whatsoever. I remember staring at my first HTML file, confused about why my text was not appearing the way I wanted it to. Looking back now, that struggle was just the beginning of an incredible learning experience.
@@ -25,7 +59,7 @@ If you are thinking about starting your own coding journey, my advice is simple.
     author: "Ayobami Zenthos",
     category: "Developer Journey",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
-    date: "Feb 5, 2026"
+    date: "Feb 4, 2026"
   },
   {
     id: 2,
@@ -54,7 +88,7 @@ Remember that frameworks come and go, but the core concepts remain relevant. Com
     author: "Ayobami Zenthos",
     category: "JavaScript",
     image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&q=80",
-    date: "Feb 4, 2026"
+    date: "Feb 3, 2026"
   },
   {
     id: 3,
@@ -89,39 +123,6 @@ Finally, embrace the reality that debugging is part of programming. Even the mos
     author: "Ayobami Zenthos",
     category: "Coding Tips",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-    date: "Feb 3, 2026"
-  },
-  {
-    id: 4,
-    title: "Building My First Project",
-    content: `There comes a point in every developer journey when tutorials are no longer enough. You can only learn so much by following along with instructors. The real learning happens when you build something from scratch, facing all the challenges and decisions that come with creating your own project. Last month, I completed my first substantial project, and I want to share what that experience taught me.
-
-The project was a task management application. I chose this because it involves fundamental concepts that every developer should understand. User input handling, data storage, updating the interface, and managing application state are all essential skills. Plus, it was something I would actually use, which kept me motivated throughout the development process.
-
-Planning was more important than I initially realized. Before writing any code, I sketched out the features I wanted to include. I designed the user interface on paper. I thought about how data would flow through the application. This upfront planning saved me countless hours of refactoring later. When I knew what I was building, the implementation became much smoother.
-
-I learned the value of writing things down. Not just code, but decisions, ideas, and problems. When I hit a roadblock, I would write out the problem in plain language. Often, the act of articulating the issue helped me see potential solutions. These notes also proved valuable when I returned to sections of code after a few days away.
-
-Starting small proved to be essential. My initial feature list was ambitious. I wanted user accounts, categories, due dates, notifications, and collaborative features. Trying to build all of this at once would have been overwhelming. Instead, I focused on the core functionality first. Add a task, mark it complete, delete it. Once that foundation was solid, I added features one at a time.
-
-This incremental approach taught me about minimum viable products. The first working version of my app was basic, but it functioned. From there, I could improve and expand. Each addition felt like a meaningful improvement rather than a drop in an enormous bucket.
-
-I made mistakes along the way, and that was valuable. There were moments when I realized my approach was wrong and had to rewrite significant portions of code. Rather than seeing this as wasted time, I understood it as part of the learning process. Each mistake taught me something about code organization, data structures, or user experience that I would not have learned otherwise.
-
-One major rewrite happened when I realized my state management was too tangled. Different parts of the application were modifying data in ways that conflicted with each other. I had to step back, think about data flow more carefully, and implement a cleaner architecture. That experience shaped how I think about application structure now.
-
-Testing became a priority earlier than I expected. Initially, I tested manually by clicking through the application. This worked for a small feature set but became tedious as the application grew. I learned to write simple automated tests that verified critical functionality. These tests caught bugs early and gave me confidence when making changes.
-
-Documentation became a priority too. I commented my code generously and wrote notes about design decisions. When I returned to sections of code after a few days, those notes were incredibly helpful. Future me thanked past me for taking the time to explain why certain choices were made.
-
-The satisfaction of completing this project was immense. Seeing something I built from nothing functioning exactly as intended gave me confidence that I could tackle larger challenges. There is a difference between knowing concepts theoretically and having applied them to solve real problems.
-
-I also learned about the importance of shipping imperfect work. Perfectionism can be paralyzing. At some point, you have to call a project done enough and move on. There will always be improvements you could make, features you could add, code you could refactor. Learning when to stop is itself a skill.
-
-If you are still in tutorial mode, I encourage you to take the leap. Pick a project that interests you and start building. The lessons you learn will accelerate your growth as a developer. You will encounter problems that no tutorial prepared you for, and solving those problems is where real learning happens.`,
-    author: "Ayobami Zenthos",
-    category: "Projects",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
     date: "Feb 2, 2026"
   },
   {
@@ -156,13 +157,13 @@ The technology will continue to evolve rapidly. What matters is developing a tho
 My advice to other learners is this: use AI tools, but use them wisely. Let them accelerate your learning, not replace it. Build genuine skills that allow you to evaluate and improve AI suggestions. The goal is to become a developer who is empowered by AI, not dependent on it. That balance will serve you well regardless of how the technology evolves.`,
     author: "Ayobami Zenthos",
     category: "Technology",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=765&auto=format&fit=crop",
     date: "Feb 1, 2026"
   }
 ];
 
 // Force refresh for updated content
-const DATA_VERSION = 4;
+const DATA_VERSION = 8;
 const storedVersion = localStorage.getItem('blogDataVersion');
 
 let posts;

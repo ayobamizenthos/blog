@@ -1,10 +1,19 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const url = require('url');
 
 const server = http.createServer((req, res) => {
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
-  if (req.url === '/') filePath = path.join(__dirname, 'index.html');
+  // Parse URL to handle query strings
+  const parsedUrl = url.parse(req.url);
+  let pathname = parsedUrl.pathname;
+
+  // Default to index.html
+  if (pathname === '/') {
+    pathname = '/index.html';
+  }
+
+  let filePath = path.join(__dirname, pathname);
 
   const ext = path.extname(filePath);
   let contentType = 'text/html';
@@ -14,6 +23,19 @@ const server = http.createServer((req, res) => {
       break;
     case '.css':
       contentType = 'text/css';
+      break;
+    case '.json':
+      contentType = 'application/json';
+      break;
+    case '.png':
+      contentType = 'image/png';
+      break;
+    case '.jpg':
+    case '.jpeg':
+      contentType = 'image/jpeg';
+      break;
+    case '.webp':
+      contentType = 'image/webp';
       break;
   }
 
