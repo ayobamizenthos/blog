@@ -1191,33 +1191,6 @@ a {
     display: flex;
   }
 
-  .featured-article {
-    height: 500px;
-  }
-
-  .featured-content {
-    padding: 40px 30px;
-    max-width: 100%;
-  }
-
-  .featured-title {
-    font-size: 36px;
-  }
-
-  .featured-excerpt {
-    font-size: 16px;
-  }
-
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .section-header h2 {
-    font-size: 26px;
-  }
-
   .footer-nav {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -1227,19 +1200,6 @@ a {
 @media (max-width: 480px) {
   .container {
     padding: 0 20px;
-  }
-
-  .featured-article {
-    height: 450px;
-  }
-
-  .featured-title {
-    font-size: 28px;
-  }
-
-  .featured-meta {
-    flex-wrap: wrap;
-    gap: 12px;
   }
 
   .footer-nav {
