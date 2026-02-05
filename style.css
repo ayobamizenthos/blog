@@ -1357,6 +1357,10 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
+
+  .featured-image::after {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 30%, transparent 50%);
+  }
 }
 
 @media (max-width: 480px) {
