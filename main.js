@@ -4,10 +4,96 @@ var container = document.getElementById("post-list");
 var featuredSection = document.getElementById("featured");
 var menuToggle = document.getElementById("menuToggle");
 var mobileNav = document.getElementById("mobileNav");
+var currentFilter = "all";
+var searchQuery = "";
 
+// Mobile menu toggle
 if (menuToggle && mobileNav) {
   menuToggle.addEventListener("click", function () {
     mobileNav.classList.toggle("open");
+  });
+}
+
+// Search functionality
+var searchBtn = document.getElementById("searchBtn");
+var searchModal = document.getElementById("searchModal");
+var searchInput = document.getElementById("searchInput");
+var searchClose = document.getElementById("searchClose");
+var searchResults = document.getElementById("searchResults");
+var mobileSearchInput = document.getElementById("mobileSearchInput");
+
+if (searchBtn && searchModal) {
+  searchBtn.addEventListener("click", function () {
+    searchModal.classList.add("open");
+    if (searchInput) searchInput.focus();
+  });
+
+  searchClose.addEventListener("click", function () {
+    searchModal.classList.remove("open");
+    searchInput.value = "";
+    searchResults.innerHTML = "";
+  });
+
+  searchModal.addEventListener("click", function (e) {
+    if (e.target === searchModal) {
+      searchModal.classList.remove("open");
+      searchInput.value = "";
+      searchResults.innerHTML = "";
+    }
+  });
+
+  searchInput.addEventListener("input", function () {
+    performSearch(this.value);
+  });
+}
+
+if (mobileSearchInput) {
+  mobileSearchInput.addEventListener("input", function () {
+    searchQuery = this.value.toLowerCase();
+    render();
+  });
+}
+
+function performSearch(query) {
+  if (!query.trim()) {
+    searchResults.innerHTML = "";
+    return;
+  }
+
+  var results = posts.filter(function (post) {
+    return post.title.toLowerCase().includes(query.toLowerCase()) ||
+      post.content.toLowerCase().includes(query.toLowerCase()) ||
+      post.category.toLowerCase().includes(query.toLowerCase());
+  });
+
+  if (results.length === 0) {
+    searchResults.innerHTML = '<p class="search-no-results">No articles found</p>';
+    return;
+  }
+
+  var html = "";
+  for (var i = 0; i < results.length; i++) {
+    html += '<a href="post.html?id=' + results[i].id + '" class="search-result-item">' +
+      '<span class="search-result-category">' + results[i].category + '</span>' +
+      '<span class="search-result-title">' + results[i].title + '</span>' +
+      '</a>';
+  }
+  searchResults.innerHTML = html;
+}
+
+// Category filtering
+var categoryFilters = document.getElementById("categoryFilters");
+if (categoryFilters) {
+  categoryFilters.addEventListener("click", function (e) {
+    if (e.target.classList.contains("category-tag")) {
+      var allTags = categoryFilters.querySelectorAll(".category-tag");
+      for (var i = 0; i < allTags.length; i++) {
+        allTags[i].classList.remove("active");
+      }
+      e.target.classList.add("active");
+      currentFilter = e.target.dataset.category;
+      render();
+    }
   });
 }
 
@@ -48,8 +134,23 @@ function render() {
 
   var postsToShow = featuredSection && posts.length > 1 ? posts.slice(1) : posts;
 
+  // Apply category filter
+  if (currentFilter !== "all") {
+    postsToShow = postsToShow.filter(function (post) {
+      return post.category === currentFilter;
+    });
+  }
+
+  // Apply search filter from mobile search
+  if (searchQuery) {
+    postsToShow = postsToShow.filter(function (post) {
+      return post.title.toLowerCase().includes(searchQuery) ||
+        post.content.toLowerCase().includes(searchQuery);
+    });
+  }
+
   if (postsToShow.length === 0) {
-    container.innerHTML = '<p style="text-align:center;grid-column:1/-1;padding:50px;color:#888;font-size:18px;">No articles yet. <a href="create.html" style="color:#ff6b35;">Write the first one</a></p>';
+    container.innerHTML = '<p style="text-align:center;grid-column:1/-1;padding:50px;color:#888;font-size:18px;">No articles found. <a href="create.html" style="color:#B4B4B8;">Write one</a></p>';
     return;
   }
 

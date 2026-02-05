@@ -32,6 +32,9 @@
     </div>
   </header>
 
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="readingProgress"></div>
+
   <main class="article-page">
     <article class="article-container">
       <a href="index.html" class="back-link">← Back to all articles</a>
@@ -55,6 +58,16 @@
       <div class="article-content" id="postContent"></div>
 
       <footer class="article-footer">
+        <div class="share-section">
+          <span class="share-label">Share this article:</span>
+          <div class="share-buttons" id="shareButtons">
+            <a href="#" id="shareTwitter" target="_blank" class="share-btn share-twitter"
+              title="Share on Twitter">𝕏</a>
+            <a href="#" id="shareLinkedIn" target="_blank" class="share-btn share-linkedin"
+              title="Share on LinkedIn">in</a>
+            <button class="share-btn share-copy" id="shareCopy" title="Copy link">📋</button>
+          </div>
+        </div>
         <div class="article-tags">
           <span class="tag" id="postTag"></span>
         </div>
@@ -184,10 +197,32 @@
       }
       document.getElementById("relatedPosts").innerHTML = relatedHtml;
 
+      // Share buttons
+      var pageUrl = encodeURIComponent(window.location.href);
+      var pageTitle = encodeURIComponent(post.title);
+
+      document.getElementById("shareTwitter").href = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + pageTitle;
+      document.getElementById("shareLinkedIn").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + pageUrl;
+
+      document.getElementById("shareCopy").addEventListener("click", function () {
+        navigator.clipboard.writeText(window.location.href).then(function () {
+          alert("Link copied to clipboard!");
+        });
+      });
+
     } else {
       document.getElementById("postTitle").textContent = "Article Not Found";
       document.getElementById("postContent").innerHTML = '<p>Sorry, this article does not exist or has been removed.</p><p><a href="index.html" style="color:#B4B4B8;">Return to homepage</a></p>';
     }
+
+    // Reading progress bar
+    var progressBar = document.getElementById("readingProgress");
+    window.addEventListener("scroll", function () {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = (scrollTop / docHeight) * 100;
+      progressBar.style.width = progress + "%";
+    });
   </script>
 </body>
 

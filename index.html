@@ -27,6 +27,12 @@
         <a href="about.html" class="nav-link">About</a>
       </nav>
       <div class="header-actions">
+        <button class="search-btn" id="searchBtn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+        </button>
         <a href="create.html" class="write-btn">New Post</a>
       </div>
       <button class="menu-toggle" id="menuToggle">
@@ -38,11 +44,23 @@
   </header>
 
   <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search">
+      <input type="text" id="mobileSearchInput" placeholder="Search articles...">
+    </div>
     <a href="index.html">Home</a>
     <a href="#articles">Articles</a>
     <a href="create.html">Write</a>
     <a href="about.html">About</a>
   </nav>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+      <input type="text" id="searchInput" placeholder="Search articles..." autofocus>
+      <button class="search-close" id="searchClose">✕</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
 
   <section class="featured-section" id="featured"></section>
 
@@ -66,12 +84,13 @@
           </div>
           <div class="sidebar-section">
             <h3>Categories</h3>
-            <div class="category-list">
-              <a href="#articles" class="category-tag">Developer Journey</a>
-              <a href="#articles" class="category-tag">JavaScript</a>
-              <a href="#articles" class="category-tag">Coding Tips</a>
-              <a href="#articles" class="category-tag">Projects</a>
-              <a href="#articles" class="category-tag">Technology</a>
+            <div class="category-list" id="categoryFilters">
+              <button class="category-tag active" data-category="all">All</button>
+              <button class="category-tag" data-category="Developer Journey">Developer Journey</button>
+              <button class="category-tag" data-category="JavaScript">JavaScript</button>
+              <button class="category-tag" data-category="Coding Tips">Coding Tips</button>
+              <button class="category-tag" data-category="Projects">Projects</button>
+              <button class="category-tag" data-category="Technology">Technology</button>
             </div>
           </div>
           <div class="sidebar-section">

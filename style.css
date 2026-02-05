@@ -87,6 +87,26 @@ a {
 .header-actions {
   display: flex;
   align-items: center;
+  gap: 12px;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #444;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.2s;
+}
+
+.search-btn:hover {
+  border-color: #B4B4B8;
+  color: #B4B4B8;
 }
 
 .write-btn {
@@ -102,6 +122,129 @@ a {
 
 .write-btn:hover {
   background: #fff;
+}
+
+/* Search Modal */
+.search-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  padding: 100px 20px;
+}
+
+.search-modal.open {
+  display: block;
+}
+
+.search-modal-content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+}
+
+.search-modal-content input {
+  flex: 1;
+  padding: 18px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  font-family: inherit;
+}
+
+.search-modal-content input:focus {
+  outline: none;
+}
+
+.search-close {
+  width: 56px;
+  height: 56px;
+  background: #333;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-close:hover {
+  background: #B4B4B8;
+}
+
+.search-results {
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+.search-result-item {
+  display: block;
+  padding: 16px 20px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+}
+
+.search-result-item:hover {
+  background: #2a2a2a;
+}
+
+.search-result-category {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #B4B4B8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.search-result-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.search-no-results {
+  text-align: center;
+  color: #888;
+  font-size: 16px;
+  padding: 30px;
+}
+
+/* Mobile Search */
+.mobile-search {
+  padding: 0 0 15px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px;
+}
+
+.mobile-search input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  font-family: inherit;
+}
+
+.mobile-search input::placeholder {
+  color: #888;
+}
+
+.mobile-search input:focus {
+  outline: none;
+  background: #444;
 }
 
 .menu-toggle {
@@ -494,6 +637,8 @@ a {
   border: 1px solid #e5e5e5;
   border-radius: 8px;
   transition: all 0.2s;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .category-tag:hover {
@@ -501,6 +646,12 @@ a {
   color: #fff;
   border-color: #0d0d0d;
   transform: translateY(-2px);
+}
+
+.category-tag.active {
+  background: #0d0d0d;
+  color: #fff;
+  border-color: #0d0d0d;
 }
 
 /* Footer */
@@ -789,13 +940,89 @@ a {
   color: #B4B4B8;
 }
 
+/* Reading Progress Bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #B4B4B8, #0d0d0d);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
 .article-footer {
   margin-top: 50px;
   padding-top: 30px;
   border-top: 1px solid #e5e5e5;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Share Section */
+.share-section {
+  display: flex;
   align-items: center;
+  gap: 16px;
+}
+
+.share-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.share-twitter {
+  background: #0d0d0d;
+  color: #fff;
+}
+
+.share-twitter:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.share-linkedin {
+  background: #0077b5;
+  color: #fff;
+}
+
+.share-linkedin:hover {
+  background: #005582;
+  transform: translateY(-2px);
+}
+
+.share-copy {
+  background: #f5f5f5;
+  color: #333;
+  font-family: inherit;
+}
+
+.share-copy:hover {
+  background: #e5e5e5;
+  transform: translateY(-2px);
 }
 
 .article-tags {
